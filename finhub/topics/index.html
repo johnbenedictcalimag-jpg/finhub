@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Finhub — Topics</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo"><i class="fas fa-chart-line"></i> Finhub — Topics</h1>
+      <nav class="main-nav">
+        <a href="../index.html">Home</a>
+        <a href="../chatbot.html">Chat</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2>Explore topics</h2>
+    <p>Choose a topic to read a short guide and prepare what you want to ask the chatbot.</p>
+    <div class="topic-list">
+      <ul>
+        <li><a href="topic.html?topic=Budgeting">Budgeting</a> — Build a simple monthly budget and track expenses.</li>
+        <li><a href="topic.html?topic=Textbooks">Textbooks &amp; Course Materials</a> — Save money on course resources.</li>
+        <li><a href="topic.html?topic=Scholarships">Scholarships &amp; Grants</a> — Find funding opportunities and application tips.</li>
+        <li><a href="topic.html?topic=Student%20Loans">Student Loans</a> — Understand borrowing and repayment options.</li>
+        <li><a href="topic.html?topic=Part-time%20Work">Part-time Work</a> — Finding jobs that fit your schedule.</li>
+        <li><a href="topic.html?topic=Savings">Savings Tips</a> — Build emergency savings and small investing ideas.</li>
+        <li><a href="topic.html?topic=Credit">Build Credit</a> — Responsible ways to build and maintain credit.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>&copy; 2025 Finhub</p></div>
+  </footer>
+
+  <script>
+    // Small enhancement: focus first link for keyboard users
+    window.addEventListener('load', ()=>{ const a = document.querySelector('.topic-list a'); if(a) a.focus(); });
+  </script>
+</body>
+</html>

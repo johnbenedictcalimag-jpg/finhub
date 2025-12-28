@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Finhub — Topic</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo"><i class="fas fa-chart-line"></i> Finhub</h1>
+      <nav class="main-nav">
+        <a href="../index.html">Home</a>
+        <a href="../chatbot.html">Chat</a>
+        <a href="index.html">Topics</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="topicContent">
+      <h2 id="topicTitle">Topic</h2>
+      <div id="topicBody"></div>
+      <div style="margin-top:1rem">
+        <a id="askChatBtn" class="btn" href="#">Ask the chatbot about this</a>
+        <a href="index.html" class="btn ghost" style="margin-left:.5rem">Back to topics</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>&copy; 2025 Finhub</p></div>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const topic = params.get('topic') || '';
+    const contentMap = {
+      'Budgeting': {
+        title: 'Budgeting for Students',
+        body: `<p>Simple steps to start a budget:</p>
+               <ul>
+                 <li>List your income (part-time work, allowances, loans).</li>
+                 <li>Track fixed expenses (rent, subscriptions) and variable (food, transport).</li>
+                 <li>Set realistic categories and a weekly spending limit.</li>
+                 <li>Use free tools or a spreadsheet and review weekly.</li>
+               </ul>`
+      },
+      'Textbooks': {
+        title: 'Saving on Textbooks & Course Materials',
+        body: ` <ul>
+                  <li>Check digital or older editions; rent or buy used copies.</li>
+                  <li>Share with classmates or use library reserves for quick reads.</li>
+                  <li>Compare course reading lists and ask instructors about essential materials.</li>
+                </ul>`
+      },
+      'Scholarships': {
+        title: 'Scholarships & Grants',
+        body: `<p>Where to look and how to apply:</p>
+               <ul>
+                 <li>Start with institutional scholarships and department funds.</li>
+                 <li>Search local foundations and community groups.</li>
+                 <li>Tailor each application, keep a short personal statement, and meet deadlines.</li>
+               </ul>`
+      },
+      'Student Loans': {
+        title: 'Student Loans — Basics & Repayment',
+        body: `<p>Understand the difference between federal and private loans, interest, and repayment plans. Consider consolidating or income-driven plans if needed.</p>`
+      },
+      'Part-time Work': {
+        title: 'Finding Part-time Work',
+        body: `<ul><li>Look at campus jobs, local businesses, and flexible gig roles.</li><li>Balance hours to protect study time.</li></ul>`
+      },
+      'Savings': {
+        title: 'Savings Tips for Students',
+        body: `<ul><li>Start small and automate transfers to a savings account.</li><li>Prioritise a small emergency fund before investing.</li></ul>`
+      },
+      'Credit': {
+        title: 'Building Credit Safely',
+        body: `<p>Use a small credit card or student card, keep utilization low, and pay on time.</p>`
+      }
+    };
+
+    const data = contentMap[topic] || { title: topic || 'Topic not found', body: '<p>We could not find detailed guidance for that topic.</p>' };
+    document.getElementById('topicTitle').textContent = data.title;
+    document.getElementById('topicBody').innerHTML = data.body;
+
+    const askBtn = document.getElementById('askChatBtn');
+    askBtn.href = `../chatbot.html?topic=${encodeURIComponent(topic)}`;
+
+    // Accessibility: focus the first heading
+    window.addEventListener('load', ()=>{ document.getElementById('topicTitle')?.focus(); });
+  </script>
+</body>
+</html>
